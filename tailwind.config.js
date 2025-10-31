@@ -10,6 +10,9 @@ module.exports = {
       colors: {
         bgLight: "#F8F8F8",
       },
+      fontFamily: {
+        inter: ["Inter", "sans-serif"],
+      },
       keyframes: {
         marquee: {
           "0%": { transform: "translateX(0%)" },

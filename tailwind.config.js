@@ -8,7 +8,7 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        reddieetext: "#af0012",
+        bgLight: "#F8F8F8",
       },
       keyframes: {
         marquee: {

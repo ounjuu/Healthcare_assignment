@@ -1,20 +1,35 @@
-// src/pages/Dashboard.tsx
-import React from "react";
+import { useState } from "react";
 
-const Dashboard: React.FC = () => {
+const DashboardTitle: React.FC = () => {
+  const [activeTitle, setActiveTitle] = useState<"basic" | "detail">("basic");
+
   return (
-    <div className="min-h-screen flex items-center justify-center max-w-[2000px] mx-auto px-4">
-      <div className="text-4xl font-bold flex">
-        <h2
-          className="absolute w-[376px] h-[116px] top-[165.45px] left-[215px]
-             text-[96px] leading-[1] font-bold tracking-normal text-red-500 font-inter"
-        >
-          기본결과
-        </h2>
-        <h2>세부결과</h2>
-      </div>
+    <div className="relative min-h-screen bg-[#F8F8F8]">
+      {/* 기본결과 */}
+      <h2
+        onClick={() => setActiveTitle("basic")}
+        className={`absolute w-[376px] h-[116px] top-[165.45px] left-[215px]
+          text-[96px] leading-[1] font-bold tracking-normal font-inter
+          cursor-pointer
+          ${activeTitle === "basic" ? "text-black" : "text-[#6B6B6B]"}
+        `}
+      >
+        기본결과
+      </h2>
+
+      {/* 세부결과 */}
+      <h2
+        onClick={() => setActiveTitle("detail")}
+        className={`absolute w-[376px] h-[116px] top-[165.45px] left-[812px]
+          text-[96px] leading-[1] font-bold tracking-normal font-inter
+          cursor-pointer
+          ${activeTitle === "detail" ? "text-black" : "text-[#6B6B6B]"}
+        `}
+      >
+        세부결과
+      </h2>
     </div>
   );
 };
 
-export default Dashboard;
+export default DashboardTitle;

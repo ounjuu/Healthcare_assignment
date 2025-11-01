@@ -10,7 +10,11 @@ body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  background-color: #f5f0e1; /* 원하는 베이지색 */
+}
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
 }
 
 .logo {

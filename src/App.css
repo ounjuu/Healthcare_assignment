@@ -5,6 +5,14 @@
   text-align: center;
 }
 
+html,
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background-color: #f5f0e1; /* 원하는 베이지색 */
+}
+
 .logo {
   height: 6em;
   padding: 1.5em;

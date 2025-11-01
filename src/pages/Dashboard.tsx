@@ -1,43 +1,33 @@
-import { useState } from "react";
+"use client";
 
-const DashboardTitle: React.FC = () => {
+import { useState } from "react";
+import DashboardTabs from "../features/dashboard/DashboardTabs";
+import BasicResult from "../features/dashboard/BasicResult";
+import DetailResult from "../features/dashboard/DetailResult";
+
+export default function DashboardPage() {
   const [activeTitle, setActiveTitle] = useState<"basic" | "detail">("basic");
 
   return (
-    <div className="flex w-[1800px] h-[4195.28px] absolute top-[93px] left-[89px] rounded-tr-[36px] rounded-br-[36px] rounded-bl-[36px]">
-      {/* 기본결과 */}
-      <h2
-        onClick={() => setActiveTitle("basic")}
-        className={`w-[376px] h-[116px] top-[165.45px] left-[215px]
-    leading-[1] font-bold tracking-normal font-inter rounded-tr-[36px] rounded-tl-[36px]
-    cursor-pointer text-[96px] transition-colors duration-300 flex items-center justify-center
-    ${
-      activeTitle === "basic"
-        ? "text-black bg-white"
-        : "text-[#6B6B6B] bg-transparent"
-    }
-  `}
-      >
-        기본결과
-      </h2>
+    <div className="flex max-w-[1800px] max-h-[4195.28px] absolute top-[93px] left-[89px] rounded-[36px] flex-col">
+      {/* 탭 헤더 */}
+      <DashboardTabs
+        activeTitle={activeTitle}
+        setActiveTitle={setActiveTitle}
+      />
 
-      {/* 세부결과 */}
-      <div
-        onClick={() => setActiveTitle("detail")}
-        className={`w-[376px] h-[116px] top-[165.45px] left-[215px]
-    leading-[1] font-bold tracking-normal font-inter rounded-tr-[36px] rounded-tl-[36px]
-    cursor-pointer text-[96px] transition-colors duration-300  flex items-center justify-center
-    ${
-      activeTitle === "basic"
-        ? "text-[#6B6B6B] bg-transparent"
-        : "text-black bg-white"
-    }
-  `}
-      >
-        세부결과
+      {/* 탭 내용 */}
+      <div className="w-full bg-white rounded-b-[36px] p-8">
+        {activeTitle === "basic" ? (
+          <div className="flex flex-col w-screen h-screen p-8">
+            <BasicResult />
+          </div>
+        ) : (
+          <div className="flex flex-col w-screen h-screen p-8">
+            <DetailResult />
+          </div>
+        )}
       </div>
     </div>
   );
-};
-
-export default DashboardTitle;
+}

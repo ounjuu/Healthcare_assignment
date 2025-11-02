@@ -95,8 +95,23 @@ const BasicResult: React.FC = () => {
           </ResponsiveContainer>
 
           {/* 평균 bpm */}
-          <p className="mt-2 text-center font-semibold">
-            평균 {avg.toFixed(0)} bpm
+          <div className="mt-2 text-center font-semibold flex flex-col items-center justify-center gap-2">
+            <span className="text-lg">평균</span>
+            <div className="flex items-center justify-center gap-2">
+              <img src="/heart.png" className="w-10 h-10" alt="heart" />
+              <span className="text-[55px] leading-none">{avg.toFixed(0)}</span>
+              <span className="text-[30px] leading-none">bpm</span>
+            </div>
+          </div>
+        </div>
+
+        {/* 안내 문구 1 */}
+        <div className="text-center mt-4 space-y-2">
+          <p>심박수는 1분 동안 심장이 뛰는 횟수를 의미해요.</p>
+          <p>일반적으로 성인은 60-100 BPM이 정상 범위에요.</p>
+          <p>
+            심박수가 너무 높거나 낮으면 건강 문제의 신호일 수 있어 주의가
+            필요해요.
           </p>
         </div>
 
@@ -126,9 +141,7 @@ const BasicResult: React.FC = () => {
           </p>
         </div>
 
-        <div className="col-span-2 h-64 mt-4">
-          <p className="font-semibold mb-2">심박수 변화</p>
-        </div>
+        <p className="font-semibold mb-2">심박수 변화</p>
       </div>
     </div>
   );

@@ -93,13 +93,13 @@ const BasicResult: React.FC = () => {
         <div className="w-full flex flex-col items-center gap-4">
           {/* 파란색 선 + '직전' */}
           <div className="flex items-center gap-2">
-            <div className="w-[111.87px] h-0 border-t-[10px] border-[#3B82F6]" />
+            <div className="w-[111.87px] h-0 border-t-[10px] border-[#3B82F6] rounded-full" />
             <span className="font-bold text-sm">직전</span>
           </div>
 
           {/* 빨간색 선 + '현재' */}
           <div className="flex items-center gap-2">
-            <div className="w-[111.87px] h-0 border-t-[10px] border-[#FF0000]" />
+            <div className="w-[111.87px] h-0 border-t-[10px] border-[#FF0000] rounded-full" />
             <span className="font-bold text-sm">현재</span>
           </div>
         </div>

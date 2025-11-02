@@ -17,7 +17,7 @@ export default function DashboardPage() {
       />
 
       {/* 탭 내용 */}
-      <div className="w-full bg-white rounded-b-[36px] p-8">
+      <div className="w-full bg-white rounded-b-[36px] rounded-tr-[36px] p-8">
         {activeTitle === "basic" ? (
           <div className="flex flex-col p-8">
             <BasicResult />

@@ -66,12 +66,18 @@ const BasicResult: React.FC = () => {
           </div>
         </div>
 
-        <div className="col-span-2 mt-4">
-          <ResponsiveContainer width="100%" height={300}>
-            <LineChart data={chartData}>
+        <div className="col-span-2 mt-4 relative">
+          <ResponsiveContainer width="100%" height={450}>
+            <LineChart
+              data={chartData}
+              margin={{ top: 20, right: 20, bottom: 0, left: 20 }}
+            >
               <CartesianGrid strokeDasharray="3 3" />
               <XAxis dataKey="name" />
-              <YAxis domain={[40, 160]} ticks={[40, 80, 120, 160]} />
+              <YAxis
+                domain={[0, 160]} // 0~160으로 y축 확대
+                ticks={[0, 40, 80, 120, 160]}
+              />
               <Tooltip />
               <Line
                 type="linear"
@@ -95,7 +101,7 @@ const BasicResult: React.FC = () => {
           </ResponsiveContainer>
 
           {/* 평균 bpm */}
-          <div className="mt-2 text-center font-semibold flex flex-col items-center justify-center gap-2">
+          <div className="absolute bottom-[80px] left-1/2 -translate-x-1/2 text-center font-semibold flex flex-col items-center justify-center gap-2">
             <span className="text-lg">평균</span>
             <div className="flex items-center justify-center gap-2">
               <img src="/heart.png" className="w-10 h-10" alt="heart" />

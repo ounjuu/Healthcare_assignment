@@ -79,15 +79,37 @@ const BasicResult: React.FC = () => {
   }));
 
   return (
-    <div className="bg-white p-8 rounded shadow-md max-w-4xl mx-auto mt-10">
-      <h2 className="text-3xl font-bold mb-6">기본결과</h2>
+    <div
+      className="bg-white rounded w-full flex flex-row border border-[#6B6B6B]  
+             rounded-[30px]
+             pt-[30px] pr-[50px] pb-[50px] pl-[30px]
+             gap-[10px]"
+    >
+      <div className="w-full flex flex-col mt-10">
+        {/* 심박수 */}
+        <p className="font-bold text-[25px] mb-4">심박수</p>
 
-      <div className="grid grid-cols-2 gap-6">
-        <div>
-          <p className="font-semibold">심박수</p>
-          <p>{currentRPPG.hr}</p>
+        {/* 직전 / 현재 */}
+        <div className="w-full flex flex-col items-center gap-4">
+          {/* 파란색 선 + '직전' */}
+          <div className="flex items-center gap-2">
+            <div className="w-[111.87px] h-0 border-t-[10px] border-[#3B82F6]" />
+            <span className="font-bold text-sm">직전</span>
+          </div>
+
+          {/* 빨간색 선 + '현재' */}
+          <div className="flex items-center gap-2">
+            <div className="w-[111.87px] h-0 border-t-[10px] border-[#FF0000]" />
+            <span className="font-bold text-sm">현재</span>
+          </div>
         </div>
 
+        <div>
+          <p>{currentRPPG.hr}</p>
+        </div>
+        {/* 심박수 변화 */}
+
+        {/* 심박 변이도 */}
         <div>
           <p className="font-semibold">심박변이도(HRV)</p>
           <p>{currentRPPG.hrv}</p>

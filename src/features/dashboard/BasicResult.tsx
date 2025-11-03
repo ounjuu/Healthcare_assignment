@@ -1,15 +1,10 @@
 "use client";
 
 import React from "react";
-import {
-  LineChart,
-  Line,
-  XAxis,
-  YAxis,
-  CartesianGrid,
-  Tooltip,
-  ResponsiveContainer,
-} from "recharts";
+
+import HeartRateChart from "../../components/charts/HeartRateChart";
+import HeartRateChange from "../../components/charts/HeartRateChange";
+
 import { useSessionResult } from "../../hooks/useSessionResult"; // 훅 import
 
 const BasicResult: React.FC = () => {
@@ -50,7 +45,7 @@ const BasicResult: React.FC = () => {
       className="bg-white rounded w-full flex flex-col border border-[#6B6B6B]  
              rounded-[30px] pt-[30px] pr-[50px] pb-[50px] pl-[30px] gap-[10px]"
     >
-      <div className="w-full flex flex-col mt-10">
+      <div className="w-full flex flex-col mt-5">
         {/* 심박수 */}
         <p className="font-bold text-[25px] mb-4">심박수</p>
 
@@ -66,60 +61,11 @@ const BasicResult: React.FC = () => {
           </div>
         </div>
 
-        <div className="col-span-2 mt-4 relative">
-          <ResponsiveContainer width="100%" height={450}>
-            <LineChart
-              data={chartData}
-              margin={{ top: 20, right: 20, bottom: 0, left: 20 }}
-            >
-              <CartesianGrid strokeDasharray="3 3" />
-              <XAxis dataKey="name" />
-              <YAxis
-                domain={[0, 160]} // 0~160으로 y축 확대
-                ticks={[0, 40, 80, 120, 160]}
-              />
-              <Tooltip />
-              <Line
-                type="linear"
-                dataKey="prev"
-                stroke="#3B82F6"
-                strokeWidth={4}
-                strokeLinecap="round"
-                dot={false}
-                name="직전"
-              />
-              <Line
-                type="linear"
-                dataKey="current"
-                stroke="#FF0000"
-                strokeWidth={4}
-                strokeLinecap="round"
-                dot={false}
-                name="현재"
-              />
-            </LineChart>
-          </ResponsiveContainer>
+        {/* 차트 영역 */}
+        <HeartRateChart chartData={chartData} avg={avg} />
 
-          {/* 평균 bpm */}
-          <div className="absolute bottom-[80px] left-1/2 -translate-x-1/2 text-center font-semibold flex flex-col items-center justify-center gap-2">
-            <span className="text-lg">평균</span>
-            <div className="flex items-center justify-center gap-2">
-              <img src="/heart.png" className="w-10 h-10" alt="heart" />
-              <span className="text-[55px] leading-none">{avg.toFixed(0)}</span>
-              <span className="text-[30px] leading-none">bpm</span>
-            </div>
-          </div>
-        </div>
-
-        {/* 안내 문구 1 */}
-        <div className="text-center mt-4 space-y-2">
-          <p>심박수는 1분 동안 심장이 뛰는 횟수를 의미해요.</p>
-          <p>일반적으로 성인은 60-100 BPM이 정상 범위에요.</p>
-          <p>
-            심박수가 너무 높거나 낮으면 건강 문제의 신호일 수 있어 주의가
-            필요해요.
-          </p>
-        </div>
+        {/* 심박수 변화 */}
+        <HeartRateChange />
 
         <div className="mt-4">
           <p>현재 심박수: {currentRPPG.hr}</p>

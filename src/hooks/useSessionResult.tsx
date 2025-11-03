@@ -8,6 +8,7 @@ export const useSessionResult = () => {
       const res = await axios.get(
         "https://core.lucycare.co.kr/api/pre-assignment/session-result-report"
       );
+      console.log(res.data, "res.data??");
       return res.data;
     },
     {

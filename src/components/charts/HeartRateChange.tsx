@@ -35,18 +35,7 @@ const HeartRateChange: React.FC = () => {
       </div>
     );
 
-  const { previousRPPG, currentRPPG, depressionScore } = data;
-
-  // 직전 / 현재 심박수 데이터 (앞 3개 값만)
-  const prevData = previousRPPG.hrValues.slice(0, 3).map((val, idx) => ({
-    name: `${idx + 1}`,
-    value: val,
-  }));
-
-  const currentData = currentRPPG.hrValues.slice(0, 3).map((val, idx) => ({
-    name: `${idx + 1}`,
-    value: val,
-  }));
+  const { previousRPPG, currentRPPG } = data;
 
   return (
     <div
@@ -94,7 +83,7 @@ const HeartRateChange: React.FC = () => {
           const max = Math.max(...previousRPPG.hrValues);
           const min = Math.min(...previousRPPG.hrValues);
           const avg =
-            previousRPPG.hrValues.reduce((a, b) => a + b, 0) /
+            previousRPPG.hrValues.reduce((a: number, b: number) => a + b, 0) /
             previousRPPG.hrValues.length;
 
           const chartData = [
@@ -139,7 +128,7 @@ const HeartRateChange: React.FC = () => {
           const min = Math.min(...currentRPPG.hrValues);
           const max = Math.max(...currentRPPG.hrValues);
           const avg =
-            currentRPPG.hrValues.reduce((a, b) => a + b, 0) /
+            currentRPPG.hrValues.reduce((a: number, b: number) => a + b, 0) /
             currentRPPG.hrValues.length;
 
           const chartData = [

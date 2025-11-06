@@ -165,6 +165,17 @@ const HeartRateChange: React.FC = () => {
         <p>직전 심박수: {previousRPPG.hr}</p>
         <p>현재 심박수: {currentRPPG.hr}</p>
       </div>
+
+      {/* ✅ 현재 심박수 표시 (파란 하트 + 평균 bpm 스타일 통일) */}
+      <div className="flex flex-col items-center mt-6">
+        <p className="font-semibold text-black mb-3">현재 심박수</p>
+        <div className="flex items-center justify-center gap-2">
+          <span className="text-[40px] leading-none">💙</span>
+          <span className="text-[55px] leading-none text-[#3B82F6]">
+            {currentRPPG.hr}
+          </span>
+        </div>
+      </div>
     </div>
   );
 };

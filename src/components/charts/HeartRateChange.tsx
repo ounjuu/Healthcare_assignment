@@ -171,9 +171,16 @@ const HeartRateChange: React.FC = () => {
         <p className="font-semibold text-black mb-3">현재 심박수</p>
         <div className="flex items-center justify-center gap-2">
           <span className="text-[40px] leading-none">💙</span>
-          <span className="text-[55px] leading-none text-[#3B82F6]">
-            {currentRPPG.hr}
-          </span>
+          <div className="flex items-end gap-2">
+            {/* 숫자만 추출 */}
+            <span className="text-[55px] leading-none text-black font-bold">
+              {currentRPPG.hr.replace(/[^0-9.]/g, "")}
+            </span>
+            {/* bpm 단위 따로 */}
+            <span className="text-[30px] leading-none text-black font-bold">
+              bpm
+            </span>
+          </div>
         </div>
       </div>
     </div>

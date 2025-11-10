@@ -67,10 +67,6 @@ const BasicResult: React.FC = () => {
         {/* 심박수 변화 */}
         <HeartRateChange />
 
-        <div className="mt-4">
-          <p>현재 심박수: {currentRPPG.hr}</p>
-        </div>
-
         <div>
           <p className="font-semibold">심박변이도(HRV)</p>
           <p>{currentRPPG.hrv}</p>
